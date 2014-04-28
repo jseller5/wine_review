@@ -1,10 +1,10 @@
 class WinesController < ApplicationController
-  def index
-  	@available_at = Time.now
-	@wines = Wine.all
+def index
+  @available_at = Time.now
+@wines = Wine.all
 end
-  def show
-  	@wine = Wine.find(params[:id])
+def show
+  @wine = Wine.find(params[:id])
 end
 
 def new
@@ -16,11 +16,10 @@ def create
   @wine.save
   redirect_to @wine
 end
+end
 
 private
 
 def wine_params
   params.require(:wine).permit(:name, :year, :winery, :country, :varietal)
-end
-
 end

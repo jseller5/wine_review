@@ -1,7 +1,5 @@
 WineReview::Application.routes.draw do
   get "/wines" => "wines#index", as: 'wines'
-  get "/wines/:id" => "wines#show", as: 'wine'
-  get "/wines" => "wines#index", as: 'wines'
   get "/wines/new" => "wines#new", as: 'new_wine'
   get "/wines/:id" => "wines#show", as: 'wine'
   post "/wines" => "wines#create"
