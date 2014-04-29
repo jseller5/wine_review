@@ -1,10 +1,10 @@
 <h2>Wines</h2>
-<p>Available as of <%= formatted_time(@available_at) %></p>
+
 <%= page_entries_info @wines %>
 <ul class="list-unstyled">
 <% @wines.each do |wine| %>
   <li class='well'><%= link_to(wine.name, wine) %> a <%= wine.varietal %> from <%= wine.winery %><br/>
-  <%= format_average_stars(wine) %>
+  <%= format_average_rating(wine) %>
   <% if wine.log_entries.any? %>
     (out of <%= pluralize(wine.log_entries.size, 'rating') %>)
   <% end %>

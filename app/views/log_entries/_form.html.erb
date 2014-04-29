@@ -13,8 +13,9 @@
 <%= f.text_area :comments %><br/>
 <%= f.label :tasted_on %><br/>
 <%= f.date_select :tasted_on %><br/>
+<p></p>
 <p>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
     <%= link_to 'Cancel', wine_log_entries_path(@wine), id: 'cancel_review' %>
 </p>
 <% end %>

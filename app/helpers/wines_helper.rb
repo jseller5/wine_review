@@ -12,7 +12,7 @@ def formatted_time(time)
     if average
       pluralize(number_with_precision(average, precision: 1), 'rating')
     else
-      'No reviews'
+      'No ratings'
     end
   end
 end
