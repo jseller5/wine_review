@@ -1,7 +1,5 @@
 class Wine < ActiveRecord::Base
 
-  has_many :reviews, dependent: :destroy
-
   VARIETALS = ['Merlot', 'Malbec', 'Cabernet Sauvignon']
  
   has_many :log_entries, dependent: :destroy
