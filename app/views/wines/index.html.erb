@@ -3,7 +3,12 @@
 <%= page_entries_info @wines %>
 <ul class="list-unstyled">
 <% @wines.each do |wine| %>
-  <li class='well'><%= link_to(wine.name, wine) %> a <%= wine.varietal %> from <%= wine.winery %> </li>
+  <li class='well'><%= link_to(wine.name, wine) %> a <%= wine.varietal %> from <%= wine.winery %><br/>
+  <%= format_average_stars(wine) %>
+  <% if wine.log_entries.any? %>
+    (out of <%= pluralize(wine.log_entries.size, 'rating') %>)
+  <% end %>
+ </li>
 <% end %>
 </ul>
 <%= paginate @wines %>

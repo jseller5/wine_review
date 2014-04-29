@@ -3,7 +3,7 @@ before_action :set_wine, only: [ :show, :edit, :update, :destroy ]
   
 def index
   @available_at = Time.now
-  @wines = Wine.order(:name).page(params[:page])
+  @wines = Wine.includes(:reviews).order(:name).page(params[:page])
 end
 
 def show
@@ -38,7 +38,24 @@ def destroy
   redirect_to wines_url
 end
 
+def new
+  @review = @wine.reviews.new
+end
+
+def create
+  @review = @wine.reviews.new(review_params)
+  if @review.save
+    redirect_to wine_reviews_path(@wine), notice: 'Review saved!'
+  else
+    render :new
+  end
+end
+
 private
+
+def review_params
+    params.require(:review).permit(:stars, :name, :comment)
+end
 
 def wine_params
   params.require(:wine).permit(:name, :year, :winery, :country, :varietal)
@@ -47,7 +64,8 @@ end
 def set_wine
   @wine = Wine.find(params[:id])
 end
-  def wine_params
+
+def wine_params
       params.require(:wine).permit(:name, :year, :winery, :country, :varietal)
   end
 end

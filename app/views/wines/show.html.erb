@@ -8,10 +8,14 @@
   <p><label>Country:</label> <%= @wine.country %></p>
   <p><label>Varietal:</label> <%= @wine.varietal %></p>
 </article>
+
+<p><label>Average Rating:</label> <%= format_average_rating(@wine) %></p>
+<p>Read all <%= link_to pluralize(@wine.log_entries.size, 'log entry'), wine_log_entries_path(@wine) %></p>
+
 <p>
 <%= link_to 'All Wines', wines_path, class: 'btn btn-primary' %>
 
-  <%= link_to 'Edit', edit_wine_path(@wine), class: 'btn btn-default' %>
+<%= link_to 'Edit', edit_wine_path(@wine), class: 'btn btn-default' %>
 
 <%= button_to 'Delete', @wine,
                method: :delete,
