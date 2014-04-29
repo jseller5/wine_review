@@ -3,7 +3,7 @@ before_action :set_wine, only: [ :show, :edit, :update, :destroy ]
   
 def index
   @available_at = Time.now
-@wines = Wine.all
+  @wines = Wine.order(:name).page(params[:page])
 end
 
 def show
@@ -47,4 +47,7 @@ end
 def set_wine
   @wine = Wine.find(params[:id])
 end
+  def wine_params
+      params.require(:wine).permit(:name, :year, :winery, :country, :varietal)
+  end
 end

@@ -1,5 +1,5 @@
+<% content_for :name, @wine.name %>
 <article class="wine">
-<%= render 'shared/flashes' %>
   <header>
     <h2><%= @wine.name %></h2>
   </header>
@@ -8,11 +8,13 @@
   <p><label>Country:</label> <%= @wine.country %></p>
   <p><label>Varietal:</label> <%= @wine.varietal %></p>
 </article>
+<p>
+<%= link_to 'All Wines', wines_path, class: 'btn btn-primary' %>
 
-<%= link_to 'All Wines', wines_path %>
-
-| <%= link_to 'Edit', edit_wine_path(@wine) %>
+  <%= link_to 'Edit', edit_wine_path(@wine), class: 'btn btn-default' %>
 
 <%= button_to 'Delete', @wine,
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' },
+               class: 'btn btn-danger' %>
+</p>

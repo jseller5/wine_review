@@ -1,0 +1,19 @@
+<div id="sidebar">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Navigation</h3>
+  </div>
+  <div class="panel-body">
+     <p>
+      <%= link_to wines_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-list-alt"></span> All Wines
+      <% end %>
+    </p>
+    <p>
+      <%= link_to new_wine_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-plus-sign"></span> Create Wine
+      <% end %>
+    </p>
+  </div>
+</div>
+</div>
